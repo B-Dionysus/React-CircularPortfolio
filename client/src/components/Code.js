@@ -1,12 +1,12 @@
 // import React from "react";
 import useRotate from "../utils/useRotate"
 import { useEffect } from "react";
-function About(props) {
+function Code(props) {
 
   const {rotateRing}=useRotate();
   
     useEffect(()=>{
-      rotateRing(90);
+      rotateRing(270);
       document.getElementById("about-text").style.opacity="100";
 
     });
@@ -28,4 +28,4 @@ function About(props) {
 }
 
 
-export default About;
+export default Code;
