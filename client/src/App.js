@@ -1,59 +1,72 @@
 
 import API from "./utils/API"
 import './App.css';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+// Linked Pages:
+import Home from "./components/Home"
+import About from "./components/About"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Component, useState, useEffect } from "react";
+// import { Component, useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import OuterRingContext from "./utils/OuterRingContext"
 
-// There are four items in the state. image is the profile pic of the current user (set to a placeholder initially)
-// info is the user data, which is initially an empty object. 
-// originalDir is the full array of user objects, downloaded once from randomusers.me
-// displayDir is the array of user objects that we are current displaying in the list. This array can be sorted,
-// filtered, and otherwise changed, while originalDir remains intact.
 function App() {
-
-  useEffect(()=>{
-    console.log("HI");
-    document.getElementById("hero-image").style.opacity="100";
+    const [outerRingState, setOuterRingState] = useState({
+        rotation:0,
     });
 
-
-
+   // const location = useLocation();
 return (
     <div className="container-fluid main-cont">
+    <Router>
         <div className="inner-ring">
-            <div id="hero-image"></div>
-        </div>
+                <OuterRingContext.Provider value={outerRingState}>
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/about" component={About} />            
+                </OuterRingContext.Provider>
+        </div>      
         <div className="outer-ring"></div>
 
-        <div className="main-ring">
+        <div className="main-ring">     
             <div className="top menu-item">
                 <div className="home">
-                    <div>HOME</div>
+                    <div> 
+                        {/* <Link to="/" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>                                        */}
+                        <Link to="/">
+                            HOME    
+                        </Link>                    
+                    </div>
                     <div><i className="fas fa-home"></i></div>
                 </div>
             </div>
             <div className="left menu-item">
-                <div className="about">
-                    <div>ABOUT</div>
+                <div className="about">             
+                <Link to="/about">               
+                    <div>             
+                        ABOUT
+                    </div>
                     <div><i className="fas fa-address-card"></i></div>
+                </Link>
                 </div>
             </div>           
             <div className="right-cont">
                 <div className="right menu-item">    
                     <div className="web">
                         <div>CODE</div>
-                    <div><i className="fas fa-code"></i></div>
+                       <div><i className="fas fa-code"></i></div>
                     </div>
                 </div>
             </div>
             <div className="bottom menu-item">
-                <div className="music">
                 <div><i className="fas fa-music"></i></div>
-                <div>MUSIC</div>
-            </div>
+                <div className="music">
+                    MUSIC
+                </div>
+            </div>      
         </div>
-        
-        </div>
+                      
+        </Router>
     </div>
 
 
