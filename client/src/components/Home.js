@@ -11,7 +11,10 @@ function Home() {
 
 
   return (
+      
+    <div className="inner-ring">
     <div id="hero-image"></div>
+    </div>
   );
 }
 

@@ -13,6 +13,8 @@ function About(props) {
 
 
   return (
+    
+    <div className="inner-ring">
     <div id="about-text">
       <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Benjamin Dionysus (benjamin@sixbynine.com)</strong></p>
       <p>According to his resume, Benjamin is:</p>
@@ -23,6 +25,7 @@ function About(props) {
         <a href="https://github.com/B-Dionysus">GitHub</a> | 
         <a href="https://desolate-waters-58175.herokuapp.com/assets/other/dionysusResume2020.5b.pdf">Resume (PDF)</a>
       </div>
+    </div>
     </div>
   );
 }

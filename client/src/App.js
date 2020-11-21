@@ -25,14 +25,14 @@ function App() {
 return (
     <div className="container-fluid main-cont">
     <Router>
-        <div className="inner-ring">
+        {/* <div className="inner-ring"> */}
                 <OuterRingContext.Provider value={outerRingState}>
                     <Route exact path="/" component={Home} />
                     <Route exact path="/about" component={About} />     
                     <Route exact path="/code" component={Code} />
                     <Route exact path="/music" component={Music} />            
                 </OuterRingContext.Provider>
-        </div>      
+        {/* </div>       */}
         <div className="outer-ring"></div>
 
         <div className="main-ring" id="main-ring">     
